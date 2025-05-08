@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Barang extends Model
+class Customer extends Model
 {
     protected $fillable = [
-        'id',
-        'nama_barang',
-        'harga_barang',
-        'kode_barang'
+        'nama_customer',
+        'alamat_customer',
+        'nomor_customer',
     ];
 }
