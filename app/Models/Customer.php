@@ -11,4 +11,8 @@ class Customer extends Model
         'alamat_customer',
         'nomor_customer',
     ];
+
+    public function fakturs(){
+        return $this->hasMany(Faktur::class, 'customer_id', 'id');
+    }
 }
