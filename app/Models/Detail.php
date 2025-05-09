@@ -16,6 +16,6 @@ class Detail extends Model
     }
 
     public function barangs(){
-        return $this->belongsTo(Barang::class);
+        return $this->belongsTo(Barang::class, 'barang_id', 'id');
     }
 }

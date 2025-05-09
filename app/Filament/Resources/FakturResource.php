@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Faktur;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -36,6 +37,19 @@ class FakturResource extends Resource
                 DatePicker::make('tanggal_faktur')->required()->label('Nomor Faktur')
                 ,
                 Select::make('customer_id')->relationship('customers', 'nama_customer') 
+                ,
+                Repeater::make('details')
+                    ->relationship('details')
+                    ->schema([
+                        Select::make('barang_id')->relationship('barangs', 'nama_barang'),
+                        TextInput::make('diskon'),
+                        TextInput::make('nama_barang'),
+                        TextInput::make('qty'),
+                        TextInput::make('harga'),
+                        TextInput::make('subtotal'),
+                        TextInput::make('hasil_qty'),
+
+                    ])
                 ,
                 Textarea::make('keterangan_faktur')
                 ,
